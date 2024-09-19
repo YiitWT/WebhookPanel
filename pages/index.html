@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yiit's Webhook Client</title>
+    <link rel="stylesheet" href="/output.css">
+
+</head>
+<body class="bg-primary">
+    <h1 class="text-5xl font-bold text-center text-white uppercase pb-12 pt-12">Yiit's Webhook Panel</h1>
+    
+    <form action="/post/webhook" method="post" id="form">
+        <div class="cradentials m-auto w-fit ">
+            <div class="grid grid-cols-2 space-x-2">
+                <div class="flex-auto">
+                    <label for="url" class="uppercase text-gray-300 text-sm font-medium mb-1.5">WEBHOOK URL <b class="text-red-600">*</b></label>
+                    <input type="text" name="url" id="url" class="bg-secondary px-3 py-2 rounded w-full focus:outline-none text-white">
+                    
+                </div>
+                <div class="flex-auto">
+                    <label for="name" class="uppercase text-gray-300 text-sm font-medium mb-1.5">name</label>
+                    <input type="text" name="name" id="name" class="bg-secondary px-3 py-2 rounded w-full focus:outline-none text-white">
+                    
+                </div>
+            </div>
+            <div class="flex-auto">
+                <label for="avatar" class="uppercase text-gray-300 text-sm font-medium mb-1.5 text-center">avatar url</label>
+                <input type="text" name="avatar" id="avatar" class="bg-secondary px-3 py-2 rounded w-full focus:outline-none text-white">
+                
+            </div>
+            <div class="h-1 w-full  rounded my-4"></div>
+            <div class="flex-auto">
+                <label for="content" class="uppercase text-gray-300 text-sm font-medium mb-1.5 text-center">description <b class="text-red-600">*</b> </label>
+                <textarea name="content" id="content" class="bg-secondary px-3 py-2 rounded w-full h-96 focus:outline-none text-white"></textarea>
+            </div>
+        </div>
+        <div class="flex justify-center mt-12">
+            <button type="submit" id="form-submit" class="w-32 h-12 rounded bg-seperator text-center">Send</button>
+        </div>
+    </form>
+</form>
+<script>
+
+// form.addEventListener('submit', function(event){
+//     event.preventDefault();
+//     var formData = new FormData(form);
+//     var data = {};
+//     formData.forEach((value, key) => {
+//         data[key] = value;
+//     });
+//     console.log(data);
+//     fetch('/post/webhook', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(data),
+//     })
+
+// })
+
+//https://discord.com/api/webhooks/1286424786985156740/-2UMcOj_wrClhoZujvFloC1Z-fXB0daiiJIEKTNyzBfFMg4dHGc3aqgzP7lQQOjjB6cB
+</script>
+</body>
+</html>
