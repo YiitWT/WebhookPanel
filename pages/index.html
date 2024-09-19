@@ -9,13 +9,16 @@
 </head>
 <body class="bg-primary">
     <h1 class="text-5xl font-bold text-center text-white uppercase pb-12 pt-12">Yiit's Webhook Panel</h1>
-    
-    <form action="/post/webhook" method="post" id="form">
-        <div class="cradentials m-auto w-fit ">
+    <div class="grid grid-cols-2">
+        
+    <form action="/post/webhook" method="post" id="form" class="w-fit ">
+        <h2 class="text-3xl font-bold text-white mb-5 border-b-2 pb-2">Credentials <note class="text-sm font-light">DO NOT SHARE THIS WITH ANYONE!</note> </h2>
+
+        <div class="Credentials ">
             <div class="grid grid-cols-2 space-x-2">
                 <div class="flex-auto">
                     <label for="url" class="uppercase text-gray-300 text-sm font-medium mb-1.5">WEBHOOK URL <b class="text-red-600">*</b></label>
-                    <input type="text" name="url" id="url" class="bg-secondary px-3 py-2 rounded w-full focus:outline-none text-white">
+                    <input type="text" name="url" id="url" class="bg-secondary px-3 py-2 rounded w-full focus:outline-none text-white" required>
                     
                 </div>
                 <div class="flex-auto">
@@ -32,35 +35,48 @@
             <div class="h-1 w-full  rounded my-4"></div>
             <div class="flex-auto">
                 <label for="content" class="uppercase text-gray-300 text-sm font-medium mb-1.5 text-center">description <b class="text-red-600">*</b> </label>
-                <textarea name="content" id="content" class="bg-secondary px-3 py-2 rounded w-full h-96 focus:outline-none text-white"></textarea>
+                <textarea name="content" id="content" class="bg-secondary px-3 py-2 rounded w-full h-96 focus:outline-none text-white" required></textarea>
             </div>
         </div>
         <div class="flex justify-center mt-12">
-            <button type="submit" id="form-submit" class="w-32 h-12 rounded bg-seperator text-center">Send</button>
+            <button type="submit" id="form-submit" class="w-32 h-12 rounded bg-seperator text-center"><b class="font-bold text-white uppercase">Send</b></button>
         </div>
     </form>
-</form>
+<div class="preview">
+    <h2 class="text-3xl font-bold text-white mb-5 border-b-2 pb-2">Preview <note class="text-sm font-light">This might look diffrent in discord based on your resulation.</note> </h2>
+    
+    <div class="card w-full">
+        <div class="flex w-fit">
+           <div class=""> <img src="https://i.imgur.com/iO24il2.png" alt="BOT PROFILE" id="bot-pfp" class="w-12 h-12 rounded-full"></div>
+           <div class="ml-2 content-center"> <h1><label id="name-text" class="font-semibold text-white">YiitWT</label> <label class="bg-seperator px-2 rounded font-bold text-white">BOT</label></h1> 
+            <p class="break-words w-[900px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non dolorum itaque voluptatibus, necessitatibus totam doloremque tempore. Autem, corrupti esse earum enim, ad voluptas dicta illo consectetur sapiente, voluptatibus aspernatur ipsam!</p>
+        </div>
+        </div>
+        
+
+    </div>
+</div>
+</div>
 <script>
 
-// form.addEventListener('submit', function(event){
-//     event.preventDefault();
-//     var formData = new FormData(form);
-//     var data = {};
-//     formData.forEach((value, key) => {
-//         data[key] = value;
-//     });
-//     console.log(data);
-//     fetch('/post/webhook', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//     })
+var username = document.getElementById('name');
+var usrValue = document.getElementById('name-text');
+var avatar = document.getElementById('avatar');
+var content = document.getElementById('content');
 
-// })
+avatar.addEventListener('input', function(){
+    document.getElementById
+    ('bot-pfp').src = avatar.value;
+});
 
-//https://discord.com/api/webhooks/1286424786985156740/-2UMcOj_wrClhoZujvFloC1Z-fXB0daiiJIEKTNyzBfFMg4dHGc3aqgzP7lQQOjjB6cB
+username.addEventListener('input', function(){
+    document.querySelector('.content-center h1 label').textContent = username.value;
+});
+
+content.addEventListener('input', function(){
+    document.querySelector('.content-center p').textContent = content.value;
+
+});
 </script>
 </body>
 </html>

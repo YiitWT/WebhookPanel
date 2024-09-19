@@ -9,6 +9,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/pages/index.html');
 });
+app.get('/err', (req, res) => {
+    res.sendFile(__dirname + '/pages/err.html');
+});
+
 
 app.post('/post/webhook', (req, res) => {
     res.redirect('/');
@@ -19,9 +23,16 @@ app.post('/post/webhook', (req, res) => {
      }).then(response => {
          console.log(response);
      }).catch(error => {
-         console.log(error);
-     });
+        res.redirect('/err');
+         
+    });
 });
+
+app.get('/discord', (req, res) => {
+    res.redirect('https://yiitwt.com/discord');
+});
+
+
 
 app.use(express.static(__dirname + '/public'));
 
